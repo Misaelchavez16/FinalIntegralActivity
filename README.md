@@ -4,7 +4,7 @@
 This is the final project of the data structures course. We are intended to implement
 a cpp application that analyses some log data files from a server. The data presents
 failed logs to some platform. The application reads the file selected by setting the
-name and location of the file on the command promp. Each failed logs contains the
+name and location of the file on the command promp. Each failed log contains the
 following data:
 </p>
 <ul>
