@@ -56,3 +56,11 @@ are available to be runned:
   <li>Dates where there were more illegal breaches(per week): for this point, we used a hastble, where each key is a week. We calculate the week number depending of the date and if there is an occurenc, we sum the integer value and then we exporte it to a linkedlist
   for getting the the one with the hihest number of occurence, by using deques_max method.</li>
 </ul>
+
+## Used data structures
+<ul>
+  <li>Stack</li>
+  <li>Queue</li>
+  <li>Linked list</li>
+  <li>Hastable</li>
+</ul>
