@@ -47,7 +47,7 @@ are available to be runned:
 
 ## About the logic on the development of each method from the points to be covered
 <ul>
-  <li>Five directions with more illegal breaches: we use a hashtable where each key is an ip direction in string format. When there is a new occurence, the integer value of the key is updated by adding the ocurrance. We use container class, where we store the ip and number of ocurrance, for then inserting values to linked list and sorting them for getting the one with more occurrences.</li>
+  <li>**Five directions with more illegal breaches**: we use a hashtable where each key is an ip direction in string format. When there is a new occurence, the integer value of the key is updated by adding the ocurrance. We use container class, where we store the ip and number of ocurrance, for then inserting values to linked list and sorting them for getting the one with more occurrences.</li>
   <li>Frequency of each error message: hastable with each message as a key.When there is an ocurranse, the integer stored at each key should be added a one.From there it is easier to get the values that repeated the most.
   </li>
   <li>Count of attacked ports: create a Hastable of ports. When there is a new key, not previously recorded at hastable, it will be added to hashtable and to an Stack. We used the hastable for indexing the value, because its complexity for indexing and looking for
