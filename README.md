@@ -28,8 +28,8 @@ The folloging URL is the source of the logs: **https://drive.google.com/drive/fo
 From this files and data, we shall get the following data and cover the following points:
 
 <ul>
-  <li>Five directions with more illegal breachs.</li>
+  <li>Five directions with more illegal breaches.</li>
   <li>Frequency of each error message.</li>
   <li>Count of attacked ports.</li>
-  <li>Dates where there were more illegal breachs(per week).</li>
+  <li>Dates where there were more illegal breaches(per week).</li>
 </ul>
