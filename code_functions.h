@@ -13,7 +13,7 @@ void help(){
     cout << "                       example:    main.exe -f [...] -d" << endl;
     cout << "\nYou can actually set various commands at the same run, for example:" << endl;
     cout << "main.exe -f route/fileName.txt -d 5 --frequency -a -d" << endl;
-}
+};
 
 
 
@@ -65,11 +65,10 @@ void read_file(string fileName, LinkedList<Server> & auxiliar_ll){
     txt_file.close();                             // closing connection to bitacora file
   }
 
-}
+};
 
 
-void most_breached_ips(LinkedList<Server> s, int & size_ll, int num_directions = 5){
-    Hashtable<string, int> directions(size_ll/2);
+void most_breached_ips( LinkedList<Server> s, Hashtable<string, int> & directions,const int & size_ll, int num_directions = 5){
     vector<string> the_ips;
     while(!s.is_empty()){
         string direction_ip = s.pop().ip;
@@ -95,46 +94,21 @@ void most_breached_ips(LinkedList<Server> s, int & size_ll, int num_directions =
                 auxiliar_index = i;
             }
         }
-        // cout << "===================="<<auxiliar_interator_string << "," <<the_ips.size()<< endl;
-        // for(int j = 0; j < the_ips.size(); j++){
-        //     cout << the_ips[j] << endl;
-        // }
         cout << auxiliar_interator_string << " : " << auxiliar_interator_int << endl;
         the_ips.erase(the_ips.begin() + auxiliar_index);
         the_stack.queue(auxiliar_interator_string);
     }
 
-}
+};
 
 
-
-
-// template<typename T>
-// class Container{
-//     private:
-//     protected:
-//     public:
-//         string ip;
-//         int occurrence;
-
-//         friend ostream& operator <<(ostream & salida, const Container<T>&contenedor){
-//             salida << contenedor.ip << "->" << contenedor.occurrence << endl;
-//             return salida;
-//         }
-//         int operator + (const Container<T>& c){
-//           return c.occurrence + occurrence;  
-//         }
-//         int operator - (const Container<T>&c){
-//             return c.occurrence - occurrence;
-//         }
-//         void operator += (const Container<T>&c){
-//             occurrence += c.occurrence;
-//         }
-//         void operator ++(){
-//             occurrence += 1;
-//         }
-//         bool operator == (const Container<T>&c){
-//             return occurrence == occurrence
-//         }
-
-// };
+void message_frequency(LinkedList<Server> s, Hashtable<string,int> & sms_frequency,const int & size_ll){
+  while(!s.is_empty()){
+    string sms = s.pop().reason;
+        if(!sms_frequency.contains_key(sms)) {
+            sms_frequency.put(sms, 1);
+        }
+        else sms_frequency.add_value(sms, 1);
+  }
+  cout << sms_frequency << endl;
+};

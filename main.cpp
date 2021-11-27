@@ -5,7 +5,7 @@
 #include <vector>
 
 #include <time.h>   // for calculating and formating to week number
-
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctime>
@@ -15,11 +15,13 @@ using namespace std;
 // home-made libraries
 #include "server.h"
 #include "linkedlist.h"
-#include "bst.h"
 #include "hashTable.h"
 #include "code_functions.h"
 
 // CString sDir = COleDateTime::GetCurrentTime().Format( "\\%Y\\%W" );
+
+
+
 
 
 // argc == argument count. Count is set automatically.
@@ -29,12 +31,15 @@ int main(int argc, char* argv[]){
     LinkedList<Server>  auxiliar_ll;
     read_file("bitacora1.txt", auxiliar_ll);
     int auxiliar_ll_size = auxiliar_ll.length();
-    most_breached_ips(auxiliar_ll, auxiliar_ll_size);
+    // message_frequency(auxiliar_ll, auxiliar_ll_size);
+    // most_breached_ips(auxiliar_ll, auxiliar_ll_size);
 
-    
+    Hashtable<string, int> sms_frequency(pow(auxiliar_ll_size,2.3));
+    message_frequency(auxiliar_ll, sms_frequency, auxiliar_ll_size);
 
 
-
+    Hashtable<string, int> directions(pow(auxiliar_ll_size,2.3));
+    most_breached_ips(auxiliar_ll, sms_frequency, auxiliar_ll_size);
 
 
 
