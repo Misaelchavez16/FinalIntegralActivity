@@ -36,3 +36,10 @@ From this files and data, we shall get the following data and cover the followin
 
 It was instructed that a basic requierent for the development, we whould apply four differente data structures.
 An we must also stablish the time complexity for each used method.
+
+## Ussage
+In the following section, is presented the way to run the code for getting the correspondent
+results or wanted data. First of all, the code should be compiled for it to work. Remember
+that this is a "set in command promp parameters" based program, so the instruction should be
+written on the command promp before running the .exe. The following parameters or commands
+are available to be runned:
