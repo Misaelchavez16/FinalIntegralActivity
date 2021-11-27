@@ -16,6 +16,8 @@ using namespace std;
 #include "bst.h"
 #include "code_functions.h"
 
+// CString sDir = COleDateTime::GetCurrentTime().Format( "\\%Y\\%W" );
+
 
 // argc == argument count. Count is set automatically.
 // argv == argument vector(string of characters). literally arr of string, which can be indexed.
