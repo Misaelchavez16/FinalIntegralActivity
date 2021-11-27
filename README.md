@@ -23,3 +23,13 @@ following data:
 
 
 The folloging URL is the source of the logs: **https://drive.google.com/drive/folders/1vtSvYAaiLdU9BsvNyFniEvDAO3pYzyI3?usp=sharing**
+
+
+From this files and data, we shall get the following data and cover the following points:
+
+<ul>
+  <li>Five directions with more illegal breachs.</li>
+  <li>Frequency of each error message.</li>
+  <li>Count of attacked ports.</li>
+  <li>Dates where there were more illegal breachs(per week).</li>
+</ul>
