@@ -17,4 +17,9 @@ following data:
 
 **Example** : "*Jul 13 07:17:09 149.9.162.86:6876 Failed password for illegal user root*"
 
+
+![alt text](https://github.com/H3cth0r/FinalIntegralActivity/blob/main/resources/data_file_example.JPG)
+
+
+
 The folloging URL is the source of the logs: **https://drive.google.com/drive/folders/1vtSvYAaiLdU9BsvNyFniEvDAO3pYzyI3?usp=sharing**
