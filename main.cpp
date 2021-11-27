@@ -14,16 +14,32 @@ using namespace std;
 #include "server.h"
 #include "linkedlist.h"
 #include "bst.h"
-
 #include "code_functions.h"
 
 
 // argc == argument count. Count is set automatically.
 // argv == argument vector(string of characters). literally arr of string, which can be indexed.
 int main(int argc, char* argv[]){
-    for(int i = 0; i < argc; i++){
-        cout << argv[i] << endl;
-        if(strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) help();
+    
+    // In case the size of the argv or just main.exe on argv, then run help for giving
+    // run instructions or examples to user and then exit
+    if(argc <= 1) exit(0);
+    if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0){help();exit(0);}
+
+    // create a queue for reciving the commands and apply them in FIFO order
+    // FIFO == First in First out
+    LinkedList<char*> commands = LinkedList<char*>();      // queue creation
+    string route="abc";int number_breached_directions = 0; // variables to store input
+    for(int i = 1; i < argc; i++){
+        commands.queue(argv[i]);
+        if(strcmp(argv[i], "-f") == 0 || strcmp(argv[i], "--file") == 0){route = argv[i+1];i++;}
+        if(strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--directions") == 0){number_breached_directions = atoi(argv[i+1]);i++;}
+    }
+    char * command;
+    while(!commands.is_empty()){
+        command = commands.dequeue();
+        // here corresponding methods will me runned
+        cout << command << endl;
     }
     
     return 0;

@@ -43,3 +43,16 @@ results or wanted data. First of all, the code should be compiled for it to work
 that this is a "set in command promp parameters" based program, so the instruction should be
 written on the command promp before running the .exe. The following parameters or commands
 are available to be runned:
+
+
+## About the logic on the development of each method from the points to be covered
+<ul>
+  <li>Five directions with more illegal breaches: we use a hashtable where each key is an ip direction in string format. When there is a new occurence, the integer value of the key is updated by adding the ocurrance. We use container class, where we store the ip and number of ocurrance, for then inserting values to linked list and sorting them for getting the one with more occurrences.</li>
+  <li>Frequency of each error message: hastable with each message as a key.When there is an ocurranse, the integer stored at each key should be added a one.From there it is easier to get the values that repeated the most.
+  </li>
+  <li>Count of attacked ports: create a Hastable of ports. When there is a new key, not previously recorded at hastable, it will be added to hashtable and to an Stack. We used the hastable for indexing the value, because its complexity for indexing and looking for
+  a value is very fast. At the end we get the size of the stack and now we have the number of attacked ports and an actual linked list with the values.
+  </li>
+  <li>Dates where there were more illegal breaches(per week): for this point, we used a hastble, where each key is a week. We calculate the week number depending of the date and if there is an occurenc, we sum the integer value and then we exporte it to a linkedlist
+  for getting the the one with the hihest number of occurence, by using deques_max method.</li>
+</ul>
