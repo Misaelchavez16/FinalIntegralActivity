@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include <time.h>   // for calculating and formating to week number
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctime>
@@ -14,6 +16,7 @@ using namespace std;
 #include "server.h"
 #include "linkedlist.h"
 #include "bst.h"
+#include "hashTable.h"
 #include "code_functions.h"
 
 // CString sDir = COleDateTime::GetCurrentTime().Format( "\\%Y\\%W" );
@@ -22,7 +25,44 @@ using namespace std;
 // argc == argument count. Count is set automatically.
 // argv == argument vector(string of characters). literally arr of string, which can be indexed.
 int main(int argc, char* argv[]){
+
+    LinkedList<Server>  auxiliar_ll;
+    read_file("bitacora1.txt", auxiliar_ll);
+    int auxiliar_ll_size = auxiliar_ll.length();
+    most_breached_ips(auxiliar_ll, auxiliar_ll_size);
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   time_t rawtime;
+//   struct tm * timeinfo;
+//   char buffer [80];
+
+//   time (&rawtime);
+//   timeinfo = localtime (&rawtime);
+
+//   strftime(buffer,80,"week %U.",timeinfo);
+//   puts(buffer);
+
     // In case the size of the argv or just main.exe on argv, then run help for giving
     // run instructions or examples to user and then exit
     if(argc <= 1) exit(0);

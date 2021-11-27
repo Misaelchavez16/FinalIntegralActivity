@@ -2,12 +2,12 @@
 
 class Server{
   private:
+  public:
     string  month;      // three letter format : sep
     int     day;        // dd format
     string  hour;       // "hh:mm:ss" format
     string  ip;         // "###.###.###.###:#####" format
     string reason;      // failing reason
-  public:
     Server(string month="jan", int day=1, string hour="00:00:00", string ip="192.169.1.1", string reason="save"){
       this->month   = month;      //O(1)
       this->day     = day;        //O(1)
@@ -48,5 +48,10 @@ class Server{
     }
     void setReason(string reason){
       this->reason = reason;    //O(1)
+    }
+
+    friend ostream& operator << (ostream & salida, const Server&s){
+      salida << s.ip << endl;
+      return salida;
     }
 };

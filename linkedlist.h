@@ -520,7 +520,7 @@ otros métodos*/
 
 
     // Sobrecarga de operador para imprimir la lista.
-    /*
+
     friend ostream& operator<< (ostream & salida, const LinkedList<T>& lista){  //O(1)
           NodeLL<T> * auxiliar = lista.head;                                                  //O(1)
           while(auxiliar != NULL){                                                         //O(n)
@@ -529,14 +529,13 @@ otros métodos*/
           }
           return salida;                                                                   //O(1)
     }
-    */
-    friend ostream& operator << (ostream & salida, const LinkedList<T>& lista){
-      string opp;
-      if(lista.infected == 0) opp = "ok";     //O(1)
-      else if(lista.infected == 1) opp = "error";//O(1)
-      salida << lista.the_size << ":" << opp; //O(1)
-      return salida;                          
-    }
+    // friend ostream& operator << (ostream & salida, const LinkedList<T>& lista){
+    //   string opp;
+    //   if(lista.infected == 0) opp = "ok";     //O(1)
+    //   else if(lista.infected == 1) opp = "error";//O(1)
+    //   salida << lista.the_size << ":" << opp; //O(1)
+    //   return salida;                          
+    // }
     // sobrecarga de operador para comparar todos los valores
     // de una lista ligada con un entero.
     friend LinkedList<T> operator <(const LinkedList<T>&lista, int value){ //O(1)
