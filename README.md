@@ -33,3 +33,6 @@ From this files and data, we shall get the following data and cover the followin
   <li>Count of attacked ports.</li>
   <li>Dates where there were more illegal breaches(per week).</li>
 </ul>
+
+It was instructed that a basic requierent for the development, we whould apply four differente data structures.
+An we must also stablish the time complexity for each used method.
