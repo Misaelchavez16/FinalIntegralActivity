@@ -18,7 +18,7 @@ following data:
 **Example** : "*Jul 13 07:17:09 149.9.162.86:6876 Failed password for illegal user root*"
 
 
-![alt text](https://github.com/H3cth0r/FinalIntegralActivity/blob/main/resources/data_file_example.JPG)
+![file structure example](https://github.com/H3cth0r/FinalIntegralActivity/blob/main/resources/data_file_example.JPG)
 
 
 
@@ -54,7 +54,7 @@ are available to be runned:
 
 
 **Example** : "*main.exe -f route/fileName.txt -d 5 --frequency -a -d*"
-
+![execution example](https://github.com/H3cth0r/FinalIntegralActivity/blob/main/resources/code_runned.JPG)
 
 ## About the logic on the development of each method from the points to be covered
 <ul>
