@@ -41,8 +41,19 @@ An we must also stablish the time complexity for each used method.
 In the following section, is presented the way to run the code for getting the correspondent
 results or wanted data. First of all, the code should be compiled for it to work. Remember
 that this is a "set in command promp parameters" based program, so the instruction should be
-written on the command promp before running the .exe. The following parameters or commands
+written on the command promp before running the .exe. It is also totally necessary store the logs in the same place the main file is located. The following parameters or commands
 are available to be runned:
+<ul>
+  <li>-h or --help       :   to acces ussage parameters or comments.</li>
+  <li>-f or --file       :   for setting the route and name of the file.</li>
+  <li>-d or --directions :   command to get the most breached directions. Input number of directions to be retrieved.</li>
+  <li>--frequency        :   returns the frequency of each message.</li>
+  <li>-a or --attacked   :   returns number of attacked ports.</li>
+  <li>--dates            :   returns days wiht more breaches per week.</li>
+</ul>
+
+
+**Example** : "*main.exe -f route/fileName.txt -d 5 --frequency -a -d*"
 
 
 ## About the logic on the development of each method from the points to be covered
