@@ -58,14 +58,15 @@ are available to be runned:
 
 ## About the logic on the development of each method from the points to be covered
 <ul>
-  <li>Five directions with more illegal breaches: we use a hashtable where each key is an ip direction in string format. When there is a new occurence, the integer value of the key is updated by adding the ocurrance. We use container class, where we store the ip and number of ocurrance, for then inserting values to linked list and sorting them for getting the one with more occurrences.</li>
-  <li>Frequency of each error message: hastable with each message as a key.When there is an ocurranse, the integer stored at each key should be added a one.From there it is easier to get the values that repeated the most.
+  <li>Input parameters on command promp: this method was used for checking which commands were inputted on command promp. We would add the commands to a queue, because this way it is easier to dequeue the commands from the queue and each time some command comes out from the list, it will be runned. the parameters like route or number of ips to get out from the files are stored on a variable each, this way the commands were separated from the route or number. </li>
+  <li>Five directions with more illegal breaches: for this method, we made use of a Hastable, Linkedlist and stack. The Linkedlist is passed as parameter, and the Hastable is passed as a referenced parameter. The Hastable was used for storing the key, which is the ip and as value it was stored an integer. when iterating the Linked list with the data of each log, if there was an occurrence of the ip, it was added on the Hashtable.
+  Then we made use of the stack for iterating the hastable and get the ips with more occurrences. We used some queue's methods, as FIFO data entry. </li>
+  <li>Frequency of each error message: hastable with each message as a key.When there is an ocurranse, the integer stored at each key should be added a one.From there it is easier to get the values that repeated the most. We iterate the linked list with the logs, each time there was an ocurrance we added to Hastable key value.
   </li>
   <li>Count of attacked ports: create a Hastable of ports. When there is a new key, not previously recorded at hastable, it will be added to hashtable and to an Stack. We used the hastable for indexing the value, because its complexity for indexing and looking for
   a value is very fast. At the end we get the size of the stack and now we have the number of attacked ports and an actual linked list with the values.
   </li>
-  <li>Dates where there were more illegal breaches(per week): for this point, we used a hastble, where each key is a week. We calculate the week number depending of the date and if there is an occurenc, we sum the integer value and then we exporte it to a linkedlist
-  for getting the the one with the hihest number of occurence, by using deques_max method.</li>
+  <li>Dates where there were more illegal breaches(per week): we created a vector containing the abreviatons of months of the year, for later comparation wiht logs. As we know that the year has 53 weaks, we created a Hastable of that size; when some day and month was detected, it was addend an integer to value of some number of week. At the end we just iterate the Hastable and we check in which months there were more breaches; we would input this weeks into a Linkedlist, because it could happen that there ara some weeks with the same number of breaches.</li>
 </ul>
 
 ## Used data structures
@@ -73,5 +74,15 @@ are available to be runned:
   <li>Stack</li>
   <li>Queue</li>
   <li>Linked list</li>
-  <li>Hastable</li>
+  <li>Hashtable</li>
+  <li>Vectors</li>
 </ul>
+
+## Credits
+Héctor Miranda García-A01658845
+
+Humberto Alejandro Rosas Téllez-A01659823
+
+Isabel Cristina Valdés Luevanos-A01025802
+
+Misael Chavez Ramos-A01659759
