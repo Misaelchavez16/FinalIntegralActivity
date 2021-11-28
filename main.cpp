@@ -73,15 +73,19 @@ int main(int argc, char* argv[]){
     while(!commands.is_empty()){
         command = commands.dequeue();
         if(command == "-a" || command == "--attacked"){
+            cout << "========= BREACHED PORTS ==========" << endl;
             count_briched_ports(auxiliar_ll, attacked_ports, auxiliar_ll_size);
         }
         if(command == "-d" ||command == "--directions"){
+            cout << "========= MOST BREACHED IPs =========" << endl;
             most_breached_ips(auxiliar_ll, directions, auxiliar_ll_size, 5);
         }
         if(command == "--frequency"){
+            cout << "========= FREQUENCY OF EACH MESSAGE =======" << endl;
             message_frequency(auxiliar_ll, sms_frequency, auxiliar_ll_size);
         }
         if(command == "--dates"){
+            cout << "======== MOST VULNERABLE WEEK OF THE YEAR =====" << endl;
             most_vulnerable_week(auxiliar_ll, weeks, auxiliar_ll_size);
         }
 
