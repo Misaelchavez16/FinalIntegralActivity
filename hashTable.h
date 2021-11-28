@@ -166,4 +166,28 @@ class Hashtable{
          tabla[fh(k)].value += 1;
          return true;                                                  //O(1)
       }
+      void print_highest(){
+
+        LinkedList<K> semanas = LinkedList<K>();
+        int h_index = 0;
+        int highest_num = 0;
+        for(int i = 0; i < size; i++)if(tabla[i].value != null_hash.value){
+          if(tabla[i].value > highest_num){ 
+            highest_num = tabla[i].value;
+            // semanas.push(tabla[i].key);
+            h_index = i;
+          }
+        }
+        for(int i = 0; i < size; i++)if(tabla[i].value != null_hash.value){
+          if(tabla[i].value >= highest_num){ 
+            highest_num = tabla[i].value;
+            semanas.push(tabla[i].key);
+            h_index = i;
+          }
+        }
+        while(!semanas.is_empty()){
+          cout << semanas.pop()<< " : ";
+        }
+        cout << endl;
+      }
 };

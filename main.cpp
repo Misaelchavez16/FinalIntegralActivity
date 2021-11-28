@@ -8,8 +8,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <ctime>
-
 using namespace std;
 
 // home-made libraries
@@ -28,65 +28,63 @@ using namespace std;
 // argv == argument vector(string of characters). literally arr of string, which can be indexed.
 int main(int argc, char* argv[]){
 
-    LinkedList<Server>  auxiliar_ll;
-    read_file("bitacora1.txt", auxiliar_ll);
-    int auxiliar_ll_size = auxiliar_ll.length();
-    // message_frequency(auxiliar_ll, auxiliar_ll_size);
-    // most_breached_ips(auxiliar_ll, auxiliar_ll_size);
-
-    Hashtable<string, int> sms_frequency(pow(auxiliar_ll_size,2.3));
-    message_frequency(auxiliar_ll, sms_frequency, auxiliar_ll_size);
+    // LinkedList<Server>  auxiliar_ll;
+    // read_file("bitacora1.txt", auxiliar_ll);
+    // int auxiliar_ll_size = auxiliar_ll.length();
+    // // message_frequency(auxiliar_ll, auxiliar_ll_size);
+    // // most_breached_ips(auxiliar_ll, auxiliar_ll_size);
 
 
-    Hashtable<string, int> directions(pow(auxiliar_ll_size,2.3));
-    most_breached_ips(auxiliar_ll, sms_frequency, auxiliar_ll_size);
+    // Hashtable<string, int> sms_frequency(pow(auxiliar_ll_size,2.3));
+    // message_frequency(auxiliar_ll, sms_frequency, auxiliar_ll_size);
 
 
+    // Hashtable<string, int> directions(pow(auxiliar_ll_size,2.3));
+    // most_breached_ips(auxiliar_ll, sms_frequency, auxiliar_ll_size);
+
+    // Hashtable<string, int> attacked_ports(pow(auxiliar_ll_size,2.3));
+    // count_briched_ports(auxiliar_ll, attacked_ports, auxiliar_ll_size);
+
+    // Hashtable<int, int> weeks(pow(auxiliar_ll_size,2.3));
+    // most_vulnerable_week(auxiliar_ll, weeks, auxiliar_ll_size);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   time_t rawtime;
-//   struct tm * timeinfo;
-//   char buffer [80];
-
-//   time (&rawtime);
-//   timeinfo = localtime (&rawtime);
-
-//   strftime(buffer,80,"week %U.",timeinfo);
-//   puts(buffer);
-
-    // In case the size of the argv or just main.exe on argv, then run help for giving
-    // run instructions or examples to user and then exit
     if(argc <= 1) exit(0);
     if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0){help();exit(0);}
 
-    // create a queue for reciving the commands and apply them in FIFO order
-    // FIFO == First in First out
     LinkedList<char*> commands = LinkedList<char*>();      // queue creation
-    string route="abc";int number_breached_directions = 0; // variables to store input
+    string route="abc";int number_breached_directions = 5; // variables to store input
+    LinkedList<Server>  auxiliar_ll;
+    int auxiliar_ll_size;
     for(int i = 1; i < argc; i++){
         commands.queue(argv[i]);
         if(strcmp(argv[i], "-f") == 0 || strcmp(argv[i], "--file") == 0){route = argv[i+1];i++;}
         if(strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--directions") == 0){number_breached_directions = atoi(argv[i+1]);i++;}
     }
-    char * command;
+    string command = commands.dequeue();
+    read_file(route, auxiliar_ll);
+    auxiliar_ll_size = auxiliar_ll.length();
+    Hashtable<string, int> attacked_ports(pow(auxiliar_ll_size,2.3));
+    Hashtable<string, int> directions(pow(auxiliar_ll_size,2.3));
+    Hashtable<string, int> sms_frequency(pow(auxiliar_ll_size,2.3));
+    Hashtable<int, int> weeks(pow(auxiliar_ll_size,2.3));
+
+
     while(!commands.is_empty()){
         command = commands.dequeue();
-        // here corresponding methods will me runned
-        cout << command << endl;
+        if(command == "-a" || command == "--attacked"){
+            count_briched_ports(auxiliar_ll, attacked_ports, auxiliar_ll_size);
+        }
+        if(command == "-d" ||command == "--directions"){
+            most_breached_ips(auxiliar_ll, directions, auxiliar_ll_size, 5);
+        }
+        if(command == "--frequency"){
+            message_frequency(auxiliar_ll, sms_frequency, auxiliar_ll_size);
+        }
+        if(command == "--dates"){
+            most_vulnerable_week(auxiliar_ll, weeks, auxiliar_ll_size);
+        }
+
     }
     
     return 0;

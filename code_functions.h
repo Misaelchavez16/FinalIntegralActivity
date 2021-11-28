@@ -9,8 +9,8 @@ void help(){
     cout << "                       example:    main.exe -f [...] --frequency" << endl;
     cout << "-a or --attacked   :   returns number of attacked ports." << endl;
     cout << "                       example:    main.exe -f [...] -a" << endl;
-    cout << "-d or --dates      :   returns days wiht more breaches per week." << endl;
-    cout << "                       example:    main.exe -f [...] -d" << endl;
+    cout << "--dates            :   returns days wiht more breaches per week." << endl;
+    cout << "                       example:    main.exe -f [...] --dates" << endl;
     cout << "\nYou can actually set various commands at the same run, for example:" << endl;
     cout << "main.exe -f route/fileName.txt -d 5 --frequency -a -d" << endl;
 };
@@ -102,7 +102,7 @@ void most_breached_ips( LinkedList<Server> s, Hashtable<string, int> & direction
 };
 
 
-void message_frequency(LinkedList<Server> s, Hashtable<string,int> & sms_frequency,const int & size_ll){
+void message_frequency(LinkedList<Server> s, Hashtable<string,int> & sms_frequency,const int size_ll){
   while(!s.is_empty()){
     string sms = s.pop().reason;
         if(!sms_frequency.contains_key(sms)) {
@@ -111,4 +111,53 @@ void message_frequency(LinkedList<Server> s, Hashtable<string,int> & sms_frequen
         else sms_frequency.add_value(sms, 1);
   }
   cout << sms_frequency << endl;
+};
+
+
+string splitter(string to_split,char delimeter){
+  string to_return;
+  bool option = false;
+  for(int i = 0; i < to_split.length(); i++){
+    if(to_split[i] == ':') {option = true;continue;}
+    if(option == true) to_return += to_split[i];
+  }
+  return to_return;
+}
+
+void count_briched_ports(LinkedList<Server> s, Hashtable<string, int> & attacked_ports,const int size_ll){
+  string the_port;
+  string ip_and_port;
+  while(!s.is_empty()){
+    ip_and_port = s.pop().ip;
+    the_port = splitter(ip_and_port, ':');
+    if(!attacked_ports.contains_key(the_port)) attacked_ports.put(the_port, 1);
+  }
+  cout << "attacket ports: " << attacked_ports.the_size() << "/" << size_ll << endl;
+}
+
+
+void most_vulnerable_week(LinkedList<Server> s, Hashtable<int, int> & weeks,const int size_ll){
+  vector <string> months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+  LinkedList<string> the_months = LinkedList<string>();
+  for(int i = 0; i < months.size(); i++){
+    the_months.addLast(months[i]);
+  }
+  
+
+  tm date = {};
+  date.tm_year = 2020-1900;
+  Server auxiliar_server;
+  while(!s.is_empty()){
+    auxiliar_server = s.pop();
+    date.tm_mon = the_months.indexOf(auxiliar_server.month)-0;
+    // cout << "month>>" << date.tm_mon<< endl;
+    date.tm_mday = auxiliar_server.day-0;
+    mktime(&date); 
+    if(!weeks.contains_key(((date.tm_yday-date.tm_wday+7)/7)+1))weeks.put(((date.tm_yday-date.tm_wday+7)/7)+1, 1);
+    else weeks.add_value(((date.tm_yday-date.tm_wday+7)/7)+1, 1);
+  }
+  // cout << weeks << endl;
+  cout << "weeks of the year with more attacks: " ;weeks.print_highest();cout <<endl; 
+
+  
 };
