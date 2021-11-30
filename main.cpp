@@ -21,33 +21,9 @@ using namespace std;
 // CString sDir = COleDateTime::GetCurrentTime().Format( "\\%Y\\%W" );
 
 
-
-
-
 // argc == argument count. Count is set automatically.
 // argv == argument vector(string of characters). literally arr of string, which can be indexed.
 int main(int argc, char* argv[]){
-
-    // LinkedList<Server>  auxiliar_ll;
-    // read_file("bitacora1.txt", auxiliar_ll);
-    // int auxiliar_ll_size = auxiliar_ll.length();
-    // // message_frequency(auxiliar_ll, auxiliar_ll_size);
-    // // most_breached_ips(auxiliar_ll, auxiliar_ll_size);
-
-
-    // Hashtable<string, int> sms_frequency(pow(auxiliar_ll_size,2.3));
-    // message_frequency(auxiliar_ll, sms_frequency, auxiliar_ll_size);
-
-
-    // Hashtable<string, int> directions(pow(auxiliar_ll_size,2.3));
-    // most_breached_ips(auxiliar_ll, sms_frequency, auxiliar_ll_size);
-
-    // Hashtable<string, int> attacked_ports(pow(auxiliar_ll_size,2.3));
-    // count_briched_ports(auxiliar_ll, attacked_ports, auxiliar_ll_size);
-
-    // Hashtable<int, int> weeks(pow(auxiliar_ll_size,2.3));
-    // most_vulnerable_week(auxiliar_ll, weeks, auxiliar_ll_size);
-
 
     if(argc <= 1) exit(0);
     if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0){help();exit(0);}
