@@ -68,7 +68,7 @@ class BST{
     }
     // recurisve postOrden
     void postOrden(Node<T> * & node){
-      if(node != NULL){
+      if(node != NULL){                                             
                 //O(1)
         postOrden(node->left);
                 //O(n)
