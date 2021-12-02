@@ -25,7 +25,7 @@ void split(string line, string & month, string & day, string & hour, string & ip
   string reason_str;    // string to concatenate reason                                                                                     //O(1)
 
   int counter = 1;      // to check position of word                                                                                        //O(1)
-  while(ss>>word){                                                                                                                          //O(1)
+  while(ss>>word){                                                                                                                          //O(n)
     
     switch(counter){
       case 1:
@@ -57,7 +57,7 @@ void read_file(string fileName, LinkedList<Server> & auxiliar_ll){
 
   if(txt_file.is_open()){                          // checking wether the file is open or not                                              //O(1)
     string line;                                   // variable to store the line                                                           //O(1)
-    while(getline(txt_file, line)){                                                                                                        //O(1)
+    while(getline(txt_file, line)){                                                                                                        //O(n)
       split(line, month, day, hour, ip, reason);  // splitting each line of txt and adding to                                              //O(1)
                                                   // corresponding variable.
       auxiliar_ll.addLast(Server(month, stoi(day), hour, ip, reason));                                                                      //O(1)
@@ -70,24 +70,24 @@ void read_file(string fileName, LinkedList<Server> & auxiliar_ll){
 
 void most_breached_ips( LinkedList<Server> s, Hashtable<string, int> & directions,const int & size_ll, int num_directions = 5){
     vector<string> the_ips;                                                                                                                 //O(1)
-    while(!s.is_empty()){                                                                                                                   //O(1)
+    while(!s.is_empty()){                                                                                                                   //O(n)
         string direction_ip = s.pop().ip;                                                                                                   //O(1)
         string delimiter = ":";                                                                                                             //O(1)
         direction_ip = direction_ip.substr(0, direction_ip.find(delimiter));
-        if(!directions.contains_key(direction_ip)) {                                                                                        //O(1)
+        if(!directions.contains_key(direction_ip)) {                                                                                        //O(n^2)
             directions.put(direction_ip, 1);                                                                                                //O(1)
             the_ips.push_back(direction_ip);                                                                                                //O(1)
         }
-        else directions.add_value(direction_ip, 1);                                                                                         //O(1)
+        else directions.add_value(direction_ip, 1);                                                                                         //O(n^2)
     } 
 
     LinkedList<string> the_stack = LinkedList<string>();                                                                                    //O(1)
     string auxiliar_interator_string = the_ips[0];                                                                                          //O(1)
     int auxiliar_interator_int = 0, auxiliar_index;                                                                                         //O(1)
-    while(the_stack.length() != num_directions){                                                                                           //O(1)
+    while(the_stack.length() != num_directions){                                                                                           //O(n)
         auxiliar_interator_string = the_ips[0];
-        auxiliar_interator_int = 0;                                                                                                       //O(1)
-        for(int i = 0; i < the_ips.size(); i++){                                                                                          //O(n)
+        auxiliar_interator_int = 0;                                                                                                       //O(n^2)
+        for(int i = 0; i < the_ips.size(); i++){                                                                                          //O(n^3)
             if(directions.get(the_ips[i]) > auxiliar_interator_int){
                 auxiliar_interator_int = directions.get(the_ips[i]);                                                                      //O(1)
                 auxiliar_interator_string = the_ips[i];                                                                                   //O(1)                                             
@@ -103,12 +103,12 @@ void most_breached_ips( LinkedList<Server> s, Hashtable<string, int> & direction
 
 
 void message_frequency(LinkedList<Server> s, Hashtable<string,int> & sms_frequency,const int size_ll){
-  while(!s.is_empty()){                                                                                                                 //O(1)
+  while(!s.is_empty()){                                                                                                                 //O(n)
     string sms = s.pop().reason;
-        if(!sms_frequency.contains_key(sms)) {                                                                                          //O(1)
+        if(!sms_frequency.contains_key(sms)) {                                                                                          //O(n)
             sms_frequency.put(sms, 1);                                                                                                  //O(1)
         }
-        else sms_frequency.add_value(sms, 1);                                                                                           //O(1)
+        else sms_frequency.add_value(sms, 1);                                                                                           //O(n)
   }
   cout << sms_frequency << endl;                                                                                                        //O(1)
 };
