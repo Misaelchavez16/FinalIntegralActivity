@@ -57,7 +57,7 @@ class LinkedList{
 
     
     // Agregar
-                                                                //O(1)
+                                                                
     /*
     Este método nos permite agregar elementos a la primera 
     posición de la lista, empujando hacia atrás a los elementos 
@@ -486,7 +486,7 @@ otros métodos*/
         auxiliar = head;                    // O(1)
         auxiliar_2 = auxiliar->next;        // O(1)
 
-        for(int j = 0; j <= i; j++){        // O(n)
+        for(int j = 0; j <= i; j++){        // O(n^2)
           if(direction == 0){                //O(1)
             if(auxiliar->data > auxiliar_2->data){
               data_handler = auxiliar->data; // O(1)
@@ -521,7 +521,7 @@ otros métodos*/
 
     // Sobrecarga de operador para imprimir la lista.
 
-    friend ostream& operator<< (ostream & salida, const LinkedList<T>& lista){  //O(1)
+    friend ostream& operator<< (ostream & salida, const LinkedList<T>& lista){             //O(1)
           NodeLL<T> * auxiliar = lista.head;                                                  //O(1)
           while(auxiliar != NULL){                                                         //O(n)
             salida << auxiliar->data << ":";                                               //O(1)
@@ -540,12 +540,12 @@ otros métodos*/
     // de una lista ligada con un entero.
     friend LinkedList<T> operator <(const LinkedList<T>&lista, int value){ //O(1)
       NodeLL<T> * auxiliar = lista.head;                                                     //O(1)
-      LinkedList<T> list;                                                                  //O(1)
-      while(auxiliar!=NULL){                                                              //O(n)
-        if(auxiliar->data.getLife()<value) list.addLast(auxiliar->data.getLife());       //O(1)
-        auxiliar = auxiliar->next;                                                      //O(1)
+      LinkedList<T> list;                                                                    //O(1)
+      while(auxiliar!=NULL){                                                                //O(n)
+        if(auxiliar->data.getLife()<value) list.addLast(auxiliar->data.getLife());          //O(n^2)
+        auxiliar = auxiliar->next;                                                          //O(1)
       }
-      return list;                                                                      //O(1)
+      return list;                                                                          //O(1)
     }
 
     bool operator < (const LinkedList<T> & lista){
