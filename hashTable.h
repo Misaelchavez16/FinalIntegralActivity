@@ -171,23 +171,23 @@ class Hashtable{
         LinkedList<K> semanas = LinkedList<K>();
         int h_index = 0;
         int highest_num = 0;
-        for(int i = 0; i < size; i++)if(tabla[i].value != null_hash.value){
-          if(tabla[i].value > highest_num){ 
+        for(int i = 0; i < size; i++)if(tabla[i].value != null_hash.value){     //O(n)
+          if(tabla[i].value > highest_num){                                     //O(1)
             highest_num = tabla[i].value;
             // semanas.push(tabla[i].key);
             h_index = i;
           }
         }
-        for(int i = 0; i < size; i++)if(tabla[i].value != null_hash.value){
-          if(tabla[i].value >= highest_num){ 
+        for(int i = 0; i < size; i++)if(tabla[i].value != null_hash.value){     //O(n)
+          if(tabla[i].value >= highest_num){                                    //O(1)
             highest_num = tabla[i].value;
             semanas.push(tabla[i].key);
             h_index = i;
           }
         }
-        while(!semanas.is_empty()){
-          cout << semanas.pop()<< " : ";
+        while(!semanas.is_empty()){                                             //O(n)
+          cout << semanas.pop()<< " : ";                                        //O(1)
         }
-        cout << endl;
+        cout << endl;                                                           //O(1)
       }
 };
